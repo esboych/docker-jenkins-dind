@@ -1,14 +1,19 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER Decheng Zhang <killercentury@gmail.com>
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 # Let's start with some basic stuff.
 RUN apt-get update -qq && apt-get install -qqy \
     apt-transport-https \
     ca-certificates \
     curl \
+    openjdk-8-jdk-headless \
+    mc \
     lxc \
     iptables
+
 
 # Install Docker from Docker Inc. repositories.
 RUN curl -sSL https://get.docker.com/ | sh
